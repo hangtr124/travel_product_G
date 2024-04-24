@@ -1,145 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wanderlust Travels</title>
-  <style>
-    /* Style definitions */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f0f0f0;
-      background-image: url("images/background-pattern.png");
-      background-repeat: repeat;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust Travels</title>
+    <style>
+        /* Colorful Background */
+        body {
+            background: linear-gradient(to right, #f9caaa, #fff2e1);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-    header {
-      background-color: #333;
-      color: #fff;
-      padding: 1rem 2rem;
-    }
+        /* Header Styling */
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #e1f2eb;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        header a {
+            text-decoration: none;
+            color: #333;
+            margin-right: 20px;
+            font-weight: bold;
+        }
 
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-    }
+        /* Navigation Buttons */
+        .buttons {
+            display: flex;
+        }
 
-    nav a:hover {
-      background-color: #222;
-    }
+        .buttons button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
 
-    button {
-      background-color: #f0f0f0;
-      border: none;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-    }
+        .buttons button:hover {
+            background-color: #222;
+        }
 
-    main {
-      padding: 2rem;
-    }
+        /* Product Section Styling */
+        .product {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 50px 0;
+        }
 
-    .travel-offer {
-      background-color: #fff;
-      padding: 2rem;
-      border-radius: 5px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-      margin-bottom: 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+        .product-card {
+            width: 30%;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            border-radius: 5px;
+            text-align: center;
+            padding: 20px;
+        }
 
-    .travel-offer img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 5px;
-      margin-bottom: 1rem;
-    }
+        .product-card img {
+            width: 100%;
+            border-radius: 5px 5px 0 0;
+        }
 
-    .travel-offer h2 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
+        .product-card h3 {
+            margin-top: 10px;
+            font-size: 18px;
+        }
 
-    .travel-offer p {
-      line-height: 1.5;
-      margin-bottom: 1rem;
-    }
+        .product-card p {
+            margin-top: 5px;
+            color: #666;
+        }
 
-    .details {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #e1f2eb;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
 
-    .details li {
-      margin-bottom: 0.5rem;
-    }
+        footer p {
+            color: #333;
+        }
 
-    .travel-offer button {
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+        /* Form Styling (JavaScript will toggle visibility) */
+        .form-container {
+            display: none;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 500px;
+        }
 
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: #333;
-      color: #fff;
-    }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
 
-    footer form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
+        .form-group {
+            margin-bottom: 15px;
+        }
 
-    footer h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-    }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
 
-    footer label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 0.2rem;
-    }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
 
-    footer input, footer textarea {
-      padding: 0.5rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      width: 100%;
-    }
+        .form-group textarea {
+            height: 100px;
+        }
 
-    footer button[type="submit"] {
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <nav>
-      <a href="#">Home</
+        .form-container button {
+            background-color: #333;
+            color: #fff
